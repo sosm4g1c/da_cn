@@ -139,7 +139,7 @@ const TransformationForm = ({
             className="w-full"
             render={({ field }) => (
               <Select
-                onValueChange={(value) =>
+                onValueChange={(value: string) =>
                   onSelectFieldHandler(value, field.onChange)
                 }
               >
