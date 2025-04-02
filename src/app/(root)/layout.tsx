@@ -9,8 +9,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* mobile-nav  */}
       <MobileNav />
+
       <div className="root-container">
-        <div>{children}</div>
+        <div className="wrapper">{children}</div>
       </div>
     </main>
   );
