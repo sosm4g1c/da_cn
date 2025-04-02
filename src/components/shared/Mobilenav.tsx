@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import Link from "next/link";
 import Image from "next/image";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { navLinks } from "../../../constants";
+import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 // import { Button } from "../ui/button";
 

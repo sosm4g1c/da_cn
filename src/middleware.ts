@@ -1,16 +1,12 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
 export default clerkMiddleware((auth, req) => {
-  // Cho phép truy cập công khai API webhook của Clerk
-  if (req.nextUrl.pathname === "/api/webhooks/clerk") {
-    return;
+  if (["/", "/api/webhooks/clerk", "/api/webhooks/stripe"].includes(req.nextUrl.pathname)) {
+    return; // Cho phép truy cập công khai
   }
-  auth();
+  auth(); // Áp dụng xác thực cho các route còn lại
 });
 
 export const config = {
-  matcher: [
-    "/((?!_next|.*\\..*).*)", // Loại bỏ file tĩnh và Next.js internals
-    "/(api|trpc)(.*)", // Chạy middleware trên API routes
-  ],
+  matcher: ["/((?!_next|.*\\..*).*)", "/(api|trpc)(.*)"],
 };
